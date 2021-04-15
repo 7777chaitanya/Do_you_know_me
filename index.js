@@ -1,11 +1,12 @@
-console.log("Heyo friend! Welcome to Chaitanya's quiz challenge");
-console.log("------------------------------------------------------");
+const chalk = require('chalk');
+console.log(chalk.redBright.bold("Heyo friend! Welcome to Chaitanya's quiz challenge"));
+console.log(chalk.green.bold.bgBlue("------------------------------------------------------"));
 var readlineSync = require('readline-sync');
-var userName = readlineSync.question("Please enter your name here to view the questions: ")
+var userName = readlineSync.question(chalk.yellow.bold("Please enter your name here to view the questions: "))
 console.log();
 
 welcome_statement = userName+", answer all the 3 questions correctly to grab a chance to position yourself in the leaderboard!"
-console.log(welcome_statement+"\n");
+console.log(chalk.blue.bold((welcome_statement+"\n")));
 
 
 
@@ -25,33 +26,35 @@ var q3 = "What designation does Chaitanya want to land into?\n1) Software Develo
 var questions = [{question:q1,answer:1},{question:q2,answer:3},{question:q3,answer:3}];
 
 for(var i=0;i<questions.length;i++){
-  questions[i].question;
-  var userAnswer = readlineSync.question(questions[i].question);
+  console.log(chalk.green.bold.bgBlue("----------------------QUESTION "+(i+1)+"----------------------"));
+  var userAnswer = readlineSync.question(chalk.yellow(questions[i].question));
   if(userAnswer == questions[i].answer){
-    console.log("Woohooo! That's the right Answer!!")
+    console.log(chalk.green.bgBlue.bold("Woohooo! That's the right Answer!!\n"));
     score++;
   }
   else{
-    console.log("That's a wrong answer.");
+    console.log(chalk.redBright.bgWhite("That's a wrong answer."));
     score--;
   }
+  
   console.log();
 }
 
-console.log("Your score is "+score);
+console.log(chalk.green.bold.bgBlue("Your score is "+score+"\n"));
+
 
 
 if(score === 3){
   leaderBoard.push(userName);
-  console.log("Congratulations "+userName+", You occupied a place in the Mega Quiz Leaderboard!\n");
+  console.log(chalk.bold.red("Congratulations "+userName+", You occupied a place in the Mega Quiz Leaderboard!\n"));
 }
 else{
-  console.log("You did not score enough to occupy the Leaderboard, "+userName+"\n");
+  console.log(chalk.bold.yellow("You did not score enough to occupy the Leaderboard, "+userName+"\n!"));
 }
-console.log("-----------------CURRENT LEADERBAORD----------------")
+console.log(chalk.bold.bgWhite.red("-----------------CURRENT LEADERBAORD----------------"));
 if(leaderBoard.length!=0)
 {
   for(let i=0;i<leaderBoard.length;i++){
-    console.log((i+1)+") "+leaderBoard[i])
+    console.log(chalk.green((i+1)+") "+leaderBoard[i]))
   }
 }
