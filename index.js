@@ -43,8 +43,7 @@ console.log("Your score is "+score);
 
 if(score === 3){
   leaderBoard.push(userName);
-  console.log("Congratulations "+userName+", You occupied a place in the Mega Quiz Leaderboard!\n")
-  console.log("Chaitanya will be notified about this event and your name will be updated in the Leaderboard by 23:59hrs today")
+  console.log("Congratulations "+userName+", You occupied a place in the Mega Quiz Leaderboard!\n");
 }
 else{
   console.log("You did not score enough to occupy the Leaderboard, "+userName+"\n");
