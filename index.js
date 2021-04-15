@@ -10,8 +10,4 @@ var qna = {
   "What is Chaitanya's passion?":o2
 }
 
-console.log(qna.len())
-
-for(let q in qna){
-  console.log(q);
-}
+console.log(o1)
